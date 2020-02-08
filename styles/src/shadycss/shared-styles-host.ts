@@ -1,4 +1,4 @@
-import { Inject, Optional, Provider } from '@angular/core';
+import { Inject, Optional, Provider, Injectable } from '@angular/core';
 import { DOCUMENT } from '@angular/common';
 import { ɵDomSharedStylesHost as DomSharedStylesHost } from '@angular/platform-browser';
 import { USING_APPLY, processStylesheets } from './process-stylesheets';
@@ -11,6 +11,7 @@ const MIXIN_REGEX = /(?:\\)(--\w[\w-_]*:\s*{[^}]*})(;)?/g;
  * pass styles to ShadyCSS for processing. This will allow the use of custom CSS
  * properties in Angular styles on browsers that do not support them.
  */
+@Injectable()
 export class ShadyCSSSharedStylesHost extends DomSharedStylesHost {
   constructor(
     @Inject(DOCUMENT) document: Document,
